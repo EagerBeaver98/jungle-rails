@@ -49,6 +49,19 @@ main section.categories-show {
         border-top-right-radius: 4px;
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
+
+        &.left {
+          position: absolute;
+          left: 0;
+          right: auto;
+          background-color: red;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-top-left-radius: 4px;
+          border-bottom-right-radius: 20px;
+          color: white;
+          justify-content: flex-start;
+        }
       }
 
       &:hover {
