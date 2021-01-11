@@ -49,9 +49,9 @@
         </li>
         <li>
             <% if current_user %>
-              <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+              <span><%= current_user.name %> | <%= link_to "Logout", '/logout' %></span>
             <% else %>
-              <%= link_to 'Login', '/users/login' %> | <%= link_to 'Signup', '/users/signup' %>
+              <span><%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %></span>
             <% end %>
         </li>
       </ul>
