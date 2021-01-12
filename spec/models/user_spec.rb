@@ -11,9 +11,12 @@ RSpec.describe User, type: :model do
       expect(@user.password).to be_present
     end
     it 'must have unique email address' do
-      @user1 = User.new(email: 'test@test.com')
-      @user2 = User.new(email: 'test@test.com')
-      expect().to be_nil
+      @user1 = User.new(email: 'test@test.com', first_name: "Bob", last_name: "Stu", password: "google", password_confirmation: 'google')
+      @user1.save
+      @user2 = User.new(email: 'test@test.com', first_name: "Bob", last_name: "Stu", password: "google", password_confirmation: 'google')
+      if !@user2.save
+        expect(true).to be_present
+      end
     end
     
   end
