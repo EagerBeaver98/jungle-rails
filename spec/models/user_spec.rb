@@ -20,4 +20,19 @@ RSpec.describe User, type: :model do
     end
     
   end
+
+  describe '.authenticate_with_credentials' do
+    it "should successfully pull user from email with white spaces" do
+      @user = User.new(email: 'test@test.com', first_name: "Bob", last_name: "Stu", password: 'google', password_confirmation: 'google')
+      @user.save
+      expect(User.authenticate_with_credentials('  test@test.com  ', @user.password).email).to eq(@user.email)
+      @user.destroy
+    end
+  end
+  it "should successfully pull user from email with mixed cases" do
+    @user = User.new(email: 'BlaH@bLAh.com' , first_name: "Bob", last_name: "Stu", password: "google", password_confirmation: 'google')
+    @user.save
+    expect(User.authenticate_with_credentials(@user.email, @user.password).email).to eq(@user.email)
+    @user.destroy
+  end
 end
